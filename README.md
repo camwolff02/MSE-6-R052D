@@ -12,6 +12,7 @@ Parts:
 - [Adafruit 9-DOF Absolute Orientation IMU](https://www.pishop.us/product/adafruit-9-dof-absolute-orientation-imu-fusion-breakout-bno055/)
 - Some Camera (TBD, USB or PiCam)
 - Some 3s LiPo (TBD, unknown MaH and amps)
+- [Red 5mm LED (25 pack)](https://www.pishop.us/product/super-bright-red-5mm-led-25-pack/)
 
 Useful links:
 - [Calculate Amps of LiPo](https://www.rogershobbycenter.com/lipoguide/)
