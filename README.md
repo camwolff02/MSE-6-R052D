@@ -34,11 +34,23 @@ Camera Detection Software
 - [ROS2 image common](https://github.com/ros-perception/image_common/tree/humble)
 - [ROS2 shared (needed?)](https://github.com/ptrmu/ros2_shared)
 
+Getting ROS2 set up
+- [Install ROS2 Humble] (https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+- [Configuring Environment (do 1 and 2)](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html)
+- [Using colcon to build packages (Install colcon, Setup colcon_cd, Setup colcon tab completion](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#)
 
 Getting the PiCam to work with Ubuntu
-1. Add `start_x=1` to `/boot/firmware/config.txt` 
-2. reboot
-3. in python, use `cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)`
+- run `sudo apt update && sudo apt-get install python3-opencv`
+- (as sudo) In `/etc/needrestart/needrestart.conf`, uncomment `#$nrconf{ucodehints} = 0;`
+1. (as sudo) In `/boot/firmware/config.txt`, append `start_x=1`
+- run `sudo apt install raspi-config`
+- run `sudo raspi-config`
+      - select `3 Interface Options`
+      - Enable legacy camera
+      - Finish
+  
+3. reboot `sudo shutdown -r now`
+4. in python, use `cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)`
     Optionally:
-    - cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2560)
-    - cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1440)
+    - `cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2560)`
+    - `cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1440)`
