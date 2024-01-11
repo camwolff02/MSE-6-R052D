@@ -14,5 +14,31 @@ Parts:
 - Some 3s LiPo (TBD, unknown MaH and amps)
 - [Red 5mm LED (25 pack)](https://www.pishop.us/product/super-bright-red-5mm-led-25-pack/)
 
+
+
+
+
+
+
+
+
 Useful links:
 - [Calculate Amps of LiPo](https://www.rogershobbycenter.com/lipoguide/)
+- [Medium article for OpenCV Camera publisher](https://jeffzzq.medium.com/ros2-image-pipeline-tutorial-3b18903e7329)
+- [NAV2 docs for camera calibration](https://navigation.ros.org/tutorials/docs/camera_calibration.html)
+
+
+Camera Detection Software
+- [ROS2 v4l2 camera driver](https://github.com/tier4/ros2_v4l2_camera)
+- [ROS2 image pipeline](https://github.com/ros-perception/image_pipeline/tree/humble)
+- [ROS2 image common](https://github.com/ros-perception/image_common/tree/humble)
+- [ROS2 shared (needed?)](https://github.com/ptrmu/ros2_shared)
+
+
+Getting the PiCam to work with Ubuntu
+1. Add `start_x=1` to `/boot/firmware/config.txt` 
+2. reboot
+3. in python, use `cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)`
+    Optionally:
+    - cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2560)
+    - cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1440)
