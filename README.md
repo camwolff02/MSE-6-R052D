@@ -40,17 +40,16 @@ Getting ROS2 set up
 - [Using colcon to build packages (Install colcon, Setup colcon_cd, Setup colcon tab completion](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#)
 
 Getting the PiCam to work with Ubuntu
-- run `sudo apt update && sudo apt-get install python3-opencv`
-- (as sudo) In `/etc/needrestart/needrestart.conf`, uncomment `#$nrconf{ucodehints} = 0;`
-1. (as sudo) In `/boot/firmware/config.txt`, append `start_x=1`
-- run `sudo apt install raspi-config`
-- run `sudo raspi-config`
+1. run `sudo apt update && sudo apt-get install python3-opencv`
+2. (as sudo) In `/etc/needrestart/needrestart.conf`, uncomment `#$nrconf{ucodehints} = 0;`
+3. (as sudo) In `/boot/firmware/config.txt`, append `start_x=1`
+4. run `sudo apt install raspi-config`
+5. run `sudo raspi-config`
       - select `3 Interface Options`
       - Enable legacy camera
       - Finish
-  
-3. reboot `sudo shutdown -r now`
-4. in python, use `cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)`
+6. reboot `sudo shutdown -r now`
+7. in python, use `cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)`
     Optionally:
     - `cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2560)`
     - `cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1440)`
