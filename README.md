@@ -26,6 +26,7 @@ Useful links:
 - [Calculate Amps of LiPo](https://www.rogershobbycenter.com/lipoguide/)
 - [Medium article for OpenCV Camera publisher](https://jeffzzq.medium.com/ros2-image-pipeline-tutorial-3b18903e7329)
 - [NAV2 docs for camera calibration](https://navigation.ros.org/tutorials/docs/camera_calibration.html)
+- [Micro ROS on Pico](https://www.youtube.com/watch?v=2dGCcT9rxso)
 
 
 Camera Detection Software
