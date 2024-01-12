@@ -60,7 +60,6 @@ Getting the PiCam to work with Ubuntu
       - Enable legacy camera
       - Finish
 6. reboot `sudo shutdown -r now`
-7. in python, use `cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)`
-    Optionally:
+7. in python, use `cap = cv2.VideoCapture('/dev/video0', cv2.CAP_V4L)`. Optionally:
     - `cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2560)`
     - `cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1440)`
