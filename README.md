@@ -35,9 +35,19 @@ Camera Detection Software
 - [ROS2 shared (needed?)](https://github.com/ptrmu/ros2_shared)
 
 Getting ROS2 set up
-- [Install ROS2 Humble] (https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+- [Install ROS2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 - [Configuring Environment (do 1 and 2)](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html)
 - [Using colcon to build packages (Install colcon, Setup colcon_cd, Setup colcon tab completion](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#)
+
+Getting micro-ROS set up
+- [Install micro-ROS Raspberry Pi Pico SDK](https://github.com/micro-ROS/micro_ros_raspberrypi_pico_sdk/tree/humble)
+      - To find the Raspberry Pi Pico, use `sudo fdisk -l`. The pico, listed as Disk model: RP2, should be towards the bottom. Note the Disk, for example mine is `Disk /dev/sda`
+      - In `/micro_ros_raspberrypi_pico_sdk/build`, instead of running the tutorial's copy command, run `sudo cp pico_micro_ros_example.utf /dev/sda` (replace with your pico directory)
+- [Build micro-ROS setup](https://github.com/micro-ROS/micro_ros_setup/tree/humble#building)
+- After building micro ros, build micro ros agent by running the following commands:
+      - `ros2 run micro_ros_setup create_agent_ws.sh`
+      - `ros2 run micro_ros_setup build_agent.sh`
+      - '  
 
 Getting the PiCam to work with Ubuntu
 1. run `sudo apt update && sudo apt-get install python3-opencv`
