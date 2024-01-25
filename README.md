@@ -41,6 +41,10 @@ Camera Detection Software
 
 
 
+Building From Source
+STEP 0: Clone the repo
+      - `git clone --recurse-submodules https://github.com/camwolff02/MSE-6-R052D.git`
+      - `cd MSE-6-R052D`
 
 STEP 1: Getting ROS2 set up
 - [Install ROS2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
@@ -61,6 +65,8 @@ STEP 2: Getting micro-ROS set up
         - `cd uros_agent_ws`
         - `. install/setup.bash`
         - `ros2 run micro_ros_agent micro_ros agent serial --dev /dev/ttyACM0`
+
+<VERIFIED AND WORKING UP TO THIS POINT>
 
 Getting the PiCam to work with Ubuntu
 1. run `sudo apt update && sudo apt-get install python3-opencv`
