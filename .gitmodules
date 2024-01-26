@@ -2,3 +2,7 @@
 	path = uros_agent_ws/src/micro_ros_setup
 	url = https://github.com/micro-ROS/micro_ros_setup.git
 	branch = humble
+[submodule "micro_ros_raspberrypi_pico_sdk"]
+	path = micro_ros_raspberrypi_pico_sdk
+	url = https://github.com/micro-ROS/micro_ros_raspberrypi_pico_sdk.git
+	branch = humble
