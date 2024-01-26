@@ -42,26 +42,25 @@ Camera Detection Software
 
 
 Building From Source
-STEP 0: Clone the repo
+1. Clone the repo
       - `git clone --recurse-submodules https://github.com/camwolff02/MSE-6-R052D.git`
       - `cd MSE-6-R052D`
 
-STEP 1: Getting ROS2 set up
-- [Install ROS2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-- [Configuring Environment (do 1 and 2)](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html)
-- [Using colcon to build packages (Install colcon, Setup colcon_cd, Setup colcon tab completion](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#)
+2. Getting ROS2 set up
+      - [Install ROS2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+      - [Configuring Environment (do 1 and 2)](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html)
+      - [Using colcon to build packages (Install colcon, Setup colcon_cd, Setup colcon tab completion](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#)
 
-STEP 2: Getting micro-ROS set up
-- [Build the micro-ROS Agent](https://github.com/micro-ROS/micro_ros_setup/tree/humble#building)
-      - `cd uros_agent_ws`
-      - `rosdep update && rosdep install --from-paths src --ignore-src -y`
-      - `colcon build`
-      - `source install/local_setup.bash`
-      - `ros2 run micro_ros_setup create_agent_ws.sh`
-      - `ros2 run micro_ros_setup build_agent.sh`
-
-
-- Run the MicroROS Bridge
+3. Getting micro-ROS set up
+      - [Build the micro-ROS Agent](https://github.com/micro-ROS/micro_ros_setup/tree/humble#building)
+        - run `cd uros_agent_ws`
+        - `rosdep update && rosdep install --from-paths src --ignore-src -y`
+        - `colcon build`
+        - `source install/local_setup.bash`
+        - `ros2 run micro_ros_setup create_agent_ws.sh`
+        - `ros2 run micro_ros_setup build_agent.sh`
+      
+      - Run the MicroROS Bridge
         - `cd uros_agent_ws`
         - `. install/setup.bash`
         - `ros2 run micro_ros_agent micro_ros agent serial --dev /dev/ttyACM0`
