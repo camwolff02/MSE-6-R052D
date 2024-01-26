@@ -53,7 +53,7 @@ Building From Source
 
 3. Getting micro-ROS set up
       - [Build the micro-ROS Agent](https://github.com/micro-ROS/micro_ros_setup/tree/humble#building)
-        - run `cd uros_agent_ws`
+        - `cd uros_agent_ws`
         - `rosdep update && rosdep install --from-paths src --ignore-src -y`
         - `colcon build`
         - `source install/local_setup.bash`
