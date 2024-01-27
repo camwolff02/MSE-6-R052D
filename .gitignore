@@ -166,5 +166,5 @@ log/
 
 # Project Specific
 test_image.png
-uros_agent_ws/src/ros2.repos
-uros_agent_ws/src/uros/
+# uros_agent_ws/src/ros2.repos
+# uros_agent_ws/src/uros/
