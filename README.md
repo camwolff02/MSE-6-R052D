@@ -28,15 +28,20 @@ Building From Source
 
 3. Getting micro-ROS set up (start each step at root repo directory)
       - [Build the micro-ROS Agent](https://github.com/micro-ROS/micro_ros_setup/tree/humble#building)
-        - `cd uros_agent_ws`
+        - `cd uros_ws`
         - `rosdep update && rosdep install --from-paths src --ignore-src -y`
         - `colcon build`
         - `source install/local_setup.bash`
         - `ros2 run micro_ros_setup create_agent_ws.sh`
         - `ros2 run micro_ros_setup build_agent.sh`
 
+      - [Setup Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk)
+        - `cd lib/pico_sdk`
+        - set the pico_sdk path as local environment variable `export PICO_SDK_PATH=$(pwd)`
+        - add environment variable to startup script `echo "export PICO_SDK_PATH=$(pwd)" >> ~/.bashrc`
+
       - [Build and flash the Micro-ROS Raspberry Pi Piko Firmware](https://github.com/micro-ROS/micro_ros_raspberrypi_pico_sdk)
-        - `cd micro_ros_raspberrypi_pico_sdk`
+        - `cd lib/micro_ros_raspberrypi_pico_sdk`
         - `mkdir build`
         - `cd build`
         - `cmake ..`
@@ -46,7 +51,7 @@ Building From Source
         - Copy the firmware to the pico with `sudo cp pico_micro_ros_example.uf2 /dev/sda` (replacing `/dev/sda` with your disk)
          
       - Run the MicroROS Bridge
-        - `cd uros_agent_ws`
+        - `cd uros_ws`
         - `. install/setup.bash`
         - `ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0`
    
@@ -54,6 +59,15 @@ Building From Source
         - In a separate terminal, `ros2 topic list`
         - If you see /pico_publisher, run `ros2 topic echo pico_publisher`
         - If the pico starts up, the micro-ROS agent on your computer is communicating with the pico! otherwise, something went wrong in setup
+
+      - Rebuilding Micro-ros with our Servo message
+            - `cd uros_ws`
+            - build the servo package `colcon build --packages-select ros2_servo`
+            - source built package `source install/local_setup.bash`
+            - Crate firmware workspace and generate library with `ros2 run micro_ros_setup create_firmware_ws.sh generate_lib`
+            - run ros2 servo workspace create function to copy source code for our message into the firmware workspace `ros2 run ros2_servo create_fwws.sh`
+            - start the firmware build `ros2 run micro_ros_setup build_firmware.sh $(pwd)/my_toolchain.cmake $(pwd)/my_colcon.meta`
+      
 
 <VERIFIED AND WORKING UP TO THIS POINT>
 
