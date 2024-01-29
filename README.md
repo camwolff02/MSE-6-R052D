@@ -27,6 +27,30 @@ Building From Source
       - [Using colcon to build packages (Install colcon, Setup colcon_cd, Setup colcon tab completion](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html#)
 
 3. Getting micro-ROS set up (start each step at root repo directory)
+      - [Setup Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk)
+        - `cd lib/pico_sdk`
+        - `mkdir build && cd build`
+        - `cmake ..`
+        - `make`
+        - add environment variable to startup script `echo "export PICO_SDK_PATH=$(pwd)" >> ~/.bashrc`
+        - source the shell startup script `source ~./.bashrc`
+
+      - [Setting up Picotool](https://github.com/raspberrypi/picotool)
+        - `cd lib/picotool`
+        - `mkdir build && cd build`
+        - `cmake ..`
+        - `make`
+
+      - [Build the Micro-ROS Raspberry Pi Pico Firmware](https://github.com/micro-ROS/micro_ros_raspberrypi_pico_sdk)
+        - `cd lib/micro_ros_raspberrypi_pico_sdk`
+        - `mkdir build && cd build`
+        - `cmake ..`
+        - `make`
+      
+      - Flash the Micro-ROS example firmware
+        - `cd lib/picotool/build'` 
+        - `sudo ./picotool load /home/pi/MSE-6-R052D/lib/micro_ros_raspberrypi_pico_sdk/build/pico_micro_ros_example.uf2 -f`
+      
       - [Build the micro-ROS Agent](https://github.com/micro-ROS/micro_ros_setup/tree/humble#building)
         - `cd uros_ws`
         - `rosdep update && rosdep install --from-paths src --ignore-src -y`
@@ -35,21 +59,6 @@ Building From Source
         - `ros2 run micro_ros_setup create_agent_ws.sh`
         - `ros2 run micro_ros_setup build_agent.sh`
 
-      - [Setup Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk)
-        - `cd lib/pico_sdk`
-        - set the pico_sdk path as local environment variable `export PICO_SDK_PATH=$(pwd)`
-        - add environment variable to startup script `echo "export PICO_SDK_PATH=$(pwd)" >> ~/.bashrc`
-
-      - [Build and flash the Micro-ROS Raspberry Pi Piko Firmware](https://github.com/micro-ROS/micro_ros_raspberrypi_pico_sdk)
-        - `cd lib/micro_ros_raspberrypi_pico_sdk`
-        - `mkdir build`
-        - `cd build`
-        - `cmake ..`
-        - `make`
-        - Hold down the BOOTSEL button, plug in your pico, and let go
-        - To find the Raspberry Pi Pico, use `sudo fdisk -l`. The pico, listed as Disk model: RP2, should be towards the bottom. Note the Disk, for example mine is `Disk /dev/sda`
-        - Copy the firmware to the pico with `sudo cp pico_micro_ros_example.uf2 /dev/sda` (replacing `/dev/sda` with your disk)
-         
       - Run the MicroROS Bridge
         - `cd uros_ws`
         - `. install/setup.bash`
