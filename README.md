@@ -91,7 +91,21 @@ Building From Source
         - Finish
       - reboot `sudo shutdown -r now`
       - To test, run `python3 test_camera.py`. If see `test_image.png` and the image looks good, the camera is working!
+
+5. Calibrating your camera
+      - [Install ros2_v4l2_camera](https://github.com/tier4/ros2_v4l2_camera) `sudo apt install ros-humble-v4l2-camera`
+      - Install image transport for image compression `sudo apt install ros-humble-image-transport-plugins`
+      - Start publishing images with `ros2 run v4l2_camera v4l2_camera_node`
+      - test with `ros2 run image_view image_view --ros-args --remap /image:=/image_raw`
+      - Run calibrator `ros2 run camera_calibration cameracalibrator \--size=8x6 \ --square=0.063 \ --approximate=0.3 \ --no-service-check \ --ros-args --remap /image:=/image_raw`
+        - Make sure to change the parameters `size` and `square` to be accurate to the checkerboard your're using
+        - Get your camera, and move around the checkerboard until the "calibrate" button lights up. Press it
+        - Once calibration is finished and the calibration text is output to the terminal, hit the "save" button, and exit the program 
+      - create calibration folder and move there`mkdir calib/my_camera_name && cd calib/my_camera_name`
+      - move calibration files and extract them `mv /tmp/calibrationdata.tar.gz . && tar -xf calibrationdata.tar.gz`
   
+6. Set up aruco detection
+      - install dependency `pip3 install opencv-contrib-python transforms3d && pip3 install em`
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 
