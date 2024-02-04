@@ -78,8 +78,8 @@ Building From Source
             - start the firmware build `ros2 run micro_ros_setup build_firmware.sh $(pwd)/my_toolchain.cmake $(pwd)/my_colcon.meta`
       
 
-<VERIFIED AND WORKING UP TO THIS POINT>
 
+< TODO TEST TO MAKE SURE THIS IS REPEATABLE >
 4. Getting the PiCam to work with Ubuntu
       - run `sudo apt update && sudo apt-get install python3-opencv`
       - (as sudo) In `/etc/needrestart/needrestart.conf`, uncomment `#$nrconf{ucodehints} = 0;`
@@ -105,7 +105,11 @@ Building From Source
       - move calibration files and extract them `mv /tmp/calibrationdata.tar.gz . && tar -xf calibrationdata.tar.gz`
   
 6. Set up aruco detection
-      - install dependency `pip3 install opencv-contrib-python transforms3d && pip3 install em`
+      - install dependency `pip3 install opencv-contrib-python transforms3d && sudo apt install ros-humble-tf-transformations`
+      - `cd ros2_ws`
+      - `colcon build --packages-select ros2_aruco ros2_aruco_interfaces`
+      - `source install/setup.bash`
+      - `ros2 run ros2_aruco aruco_node --ros-args -p marker_size:=0.145 -p aruco_dictionary_id:=DICT_4X4_50 -p image_topic:=/image_raw -p camera_info_topic:=/camera_info`
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 
