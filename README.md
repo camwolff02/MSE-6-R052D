@@ -133,10 +133,3 @@ Useful links:
 - [NAV2 docs for camera calibration](https://navigation.ros.org/tutorials/docs/camera_calibration.html)
 - [Micro ROS on Pico](https://www.youtube.com/playlist?list=PLspDyukWAtRU6CExohVFg07T98ssxdqy1)
 
-
-Camera Detection Software
-- [ROS2 v4l2 camera driver](https://github.com/tier4/ros2_v4l2_camera)
-- [ROS2 image pipeline](https://github.com/ros-perception/image_pipeline/tree/humble)
-- [ROS2 image common](https://github.com/ros-perception/image_common/tree/humble)
-- [ROS2 shared (needed?)](https://github.com/ptrmu/ros2_shared)
-
