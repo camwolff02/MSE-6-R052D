@@ -21,7 +21,7 @@ Parts:
 
 ## Building From Source 
       
-note that with the exception of section 2. Getting ROS2 set up, you shouldn't have to click on any of the links. You should just be able to run the commands, and refer to the links if you're having any difficulties or problems
+Note that with the exception of section 2. Getting ROS2 set up, you shouldn't have to click on any of the links. You should just be able to run the commands, and refer to the links if you're having any difficulties or problems
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 1. Clone the repo
