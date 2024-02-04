@@ -10,9 +10,9 @@ Parts:
 - [DC 12V to 5V Buck Converter](https://www.pishop.us/product/dc-dc-12v-to-3-3v-5v-12v-power-module-multi-output-voltage-conversion/)
 - [RPLIDAR A1](https://www.adafruit.com/product/4010)
 - [Adafruit 9-DOF Absolute Orientation IMU](https://www.pishop.us/product/adafruit-9-dof-absolute-orientation-imu-fusion-breakout-bno055/)
-- Some Camera (TBD, USB or PiCam)
-- Some 3s LiPo (TBD, unknown MaH and amps)
+- [Raspberry Pi Camera Module 3 Wide](https://www.pishop.us/product/raspberry-pi-camera-module-3-wide/)
 - [Red 5mm LED (25 pack)](https://www.pishop.us/product/super-bright-red-5mm-led-25-pack/)
+- - Some 3s LiPo (TBD, unknown MaH and amps)
 
 
 
