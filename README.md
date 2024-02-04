@@ -107,7 +107,7 @@ note that with the exception of section 2. Getting ROS2 set up, you shouldn't ha
       - [Install ros2_v4l2_camera](https://github.com/tier4/ros2_v4l2_camera) `sudo apt install ros-humble-v4l2-camera`
       - Install image transport for image compression `sudo apt install ros-humble-image-transport-plugins`
       - Start publishing images with `ros2 run v4l2_camera v4l2_camera_node`
-      - test with `ros2 run image_view image_view --ros-args --remap /image:=/image_raw`
+      - test with `ros2 run rqt_image_view rqt_image_view` (preferred) or `ros2 run image_view image_view --ros-args --remap /image:=/image_raw`
       - Run calibrator `ros2 run camera_calibration cameracalibrator \--size=8x6 \ --square=0.063 \ --approximate=0.3 \ --no-service-check \ --ros-args --remap /image:=/image_raw`
         - Make sure to change the parameters `size` and `square` to be accurate to the checkerboard your're using
         - Get your camera, and move around the checkerboard until the "calibrate" button lights up. Press it
