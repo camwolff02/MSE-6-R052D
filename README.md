@@ -124,6 +124,7 @@ note that with the exception of section 2. Getting ROS2 set up, you shouldn't ha
       - `ros2 run ros2_aruco aruco_node --ros-args -p marker_size:=0.145 -p aruco_dictionary_id:=DICT_4X4_50 -p image_topic:=/image_raw -p camera_info_topic:=/camera_info -p camera_frame:=map` (note that we're specifying the camera frame to be the map, that means positions are given relative to the map. In the final software stack, this should be changed to the frame of the camera) 
       - now we can test by running `ros2 topic list`. If you see `/aruco_markers`, detection is working!
       - We can see this in action by running `ros2 topic echo /aruco_markers` (make sure you're in `ros2_ws` and have sourced your environment so ROS can tell what the aruco message is). Notice how at first, the terminal pauses and nothing prints. But, hold up your marker(s), and you'll see them printed out with the correct id(s)!
+      - We can even visualize our markers in 3D space! Try running `rviz2 -d rviz/aruco_demo.rviz` and watch as the red arrow moves around with your marker. That arrow is a normal vector to where ROS thinks your aruco tag is, relative to (0,0,0)
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 
