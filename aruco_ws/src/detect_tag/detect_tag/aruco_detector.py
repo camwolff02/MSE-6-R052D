@@ -130,7 +130,3 @@ class Aruco_Detector():
 
         return tags, frame  
         
-    def __del__(self):
-        # release all resources
-        self.cap.release()
-        cv2.destroyAllWindows()

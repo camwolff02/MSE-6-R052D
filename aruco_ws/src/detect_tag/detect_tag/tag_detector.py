@@ -21,7 +21,7 @@ class Tag_Detector(Node):
         # ROS2 NODE 
         super().__init__('tag_detector')
 
-        self.subscription = self.create_subscription(Image, 'autonomy/camera_image', self.listener_callback, 10)
+        self.subscription = self.create_subscription(Image, 'autonomy/image_raw', self.listener_callback, 10)
         self.bridge = CvBridge()
 
         self.publisher_ = self.create_publisher(TagList, 'autonomy/tag_data', 10)
