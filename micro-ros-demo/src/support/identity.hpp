@@ -13,7 +13,7 @@
  * Teensy
 */
 #if DEVICE_ID == 1
-    #define ID_Serial Serial
+    #define ID_Serial Serial2 // formerly Serial
     #define ID_PIN_LED LED_BUILTIN
 #endif
 
@@ -23,6 +23,4 @@
 #if DEVICE_ID == 2
     #define ID_Serial Serial
     #define ID_PIN_LED 22
-
-    // UART Serial2(8, 9, NC, NC);
 #endif
