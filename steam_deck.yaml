@@ -1,0 +1,7 @@
+# https://index.ros.org/p/teleop_twist_joy/github-ros2-teleop_twist_joy/
+teleop_twist_joy_node:
+  ros__parameters:
+    enable_button: 8
+    axis_linear.x: 1
+    axis_angular: 2
+

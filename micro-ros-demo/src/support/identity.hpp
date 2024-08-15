@@ -22,5 +22,5 @@
 */
 #if DEVICE_ID == 2
     #define ID_Serial Serial
-    #define ID_PIN_LED 22
+    #define ID_PIN_LED 25
 #endif

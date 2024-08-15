@@ -21,3 +21,9 @@ void error_loop() {
     delay(100);
   }
 }
+
+double map_range(double num, double in_start, double in_end, double out_start, double out_end) {
+    // uses basic y = mx+b formula to map number from in range to out range
+    double slope = (out_end - out_start) / (in_end - in_start);
+    return out_start + slope * (num - in_start);
+}

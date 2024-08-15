@@ -12,7 +12,7 @@
 // Import all your c++ files here
 #include <handlers/daylight_sensor.hpp>
 #include <handlers/light_switch.hpp>
-// #include <handlers/rc_controller.hpp>
+#include <handlers/rc_controller.hpp>
 
 // Choose your node names here
 #define NODE_NAME "micro_ros_handler"
@@ -22,7 +22,7 @@
 const size_t HANDLER_COUNT = (
     daylight_sensor::HANDLER_COUNT + 
     light_switch::HANDLER_COUNT + 
-    // rc_controller::HANDLER_COUNT + 
+    rc_controller::HANDLER_COUNT + 
 0);
 
 /**
@@ -33,7 +33,7 @@ const size_t HANDLER_COUNT = (
 void init_all_handlers(rclc_support_t &support, rcl_node_t &node) {
     daylight_sensor::init_handlers(support, node);
     light_switch::init_handlers(support, node);
-    // rc_controller::init_handlers(support, node);
+    rc_controller::init_handlers(support, node);
 }
 
 /**
@@ -44,5 +44,5 @@ void init_all_handlers(rclc_support_t &support, rcl_node_t &node) {
 void attach_all_to_executor(rclc_executor_t &executor) {
     daylight_sensor::attach_to_executor(executor);
     light_switch::attach_to_executor(executor);
-    // rc_controller::attach_to_executor(executor);
+    rc_controller::attach_to_executor(executor);
 }
