@@ -14,11 +14,19 @@
 #include <support/helper.hpp>
 
 
-#define MOTOR_PIN 0                                                               
-#define SERVO_PIN 22
+#define MOTOR_PIN 14                                                               
+#define SERVO_PIN 28
+// #define SERVO_PIN 15
 
+#define SERVO_270
+
+#ifndef SERVO_270
 #define LEFT_BOUND 50
 #define RIGHT_BOUND 135
+#else
+#define LEFT_BOUND 70
+#define RIGHT_BOUND 122
+#endif
 
 #define ZERO_SPEED 90  
 #define MAX_FORWARD_SPEED 122
@@ -39,12 +47,13 @@ Servo steering;
 Servo esc;
 int linear;
 int angular;
-unsigned int steer_period;
 
 /** Function Prototypes */
 void cmd_vel_callback(const void *);
 void motor_timer_callback(rcl_timer_t *, int64_t);
 void steering_timer_callback(rcl_timer_t *, int64_t);
+
+/** Essential Functions */
 
 /**
  * @brief Sets up all the data necessary for a node to run
@@ -71,23 +80,23 @@ void init_handlers(rclc_support_t &support, rcl_node_t &node) {
         "cmd_vel"));
 
     // create timers for all of our effectors
-    const unsigned int frequency = 10000;
+    const unsigned int frequency = 1000;
     RCCHECK(rclc_timer_init_default(
         &motor_timer,
         &support,
         RCL_MS_TO_NS(1/frequency),  // time between publishes
         motor_timer_callback));
 
-    steer_period = 500;
     RCCHECK(rclc_timer_init_default(
         &steering_timer,
         &support,
-        RCL_MS_TO_NS(steer_period),  // time between publishes
+        RCL_MS_TO_NS(1/frequency),  // time between publishes
         steering_timer_callback));
 
     // allow time for throttle teaching
     delay(2000);
 }
+
 
 /**
  * @brief Attaches our handlers to the executor, in this case both our subscribers
@@ -100,6 +109,7 @@ void attach_to_executor(rclc_executor_t &executor) {
     RCCHECK(rclc_executor_add_timer(&executor, &steering_timer));
 }
 
+/** Handler Functions */
 /**
  * @brief Called every time the subscriber sees a new message
  * 
@@ -123,25 +133,18 @@ void motor_timer_callback(rcl_timer_t *timer, int64_t last_call_time) {
     }
 }
 
+/**
+ * @brief Moves the steering servo as close as possible to the desired position.
+ *        Assumes the motor can move 1 degree every 15ms.
+ * 
+ * @param timer 
+ * @param last_call_time 
+ */
 void steering_timer_callback(rcl_timer_t *timer, int64_t last_call_time) {
     RCLC_UNUSED(last_call_time);
     if (timer != NULL) {
-        int curr_pos = steering.read();
-        int increment = 1;
-
-        if (curr_pos != angular) {
-            steering.write(curr_pos + increment * (curr_pos < angular? 1 : -1));
-            delay(steer_period);
-        }
-
-        return;
-        int dir = steering.read() < angular? 1 : -1;
-        for (int pos = steering.read(); pos != angular; pos += dir) {
-            steering.write(pos);
-            delay(10);
-        }
+        steering.write(angular);
     }
 }
-
 
 }
